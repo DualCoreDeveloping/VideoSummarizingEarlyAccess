@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+# DualCore — Early Access Preview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Summarize any video or audio in seconds.
 
-Currently, two official plugins are available:
+DualCore is a pre-release tool that lets users paste a YouTube/video URL or upload a media file and instantly receive an AI-generated summary with key takeaways. This repository contains the early access frontend, built in React + TypeScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What it does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Accepts a YouTube or direct video URL, or a local file upload (`.mp4`, `.mp3`, `.wav`, `.mov`, `.ape`)
+- Processes the content and returns a structured summary with key takeaways
+- Lets users export the summary as plain text or transform it into an infographic
+- Collects lightweight product feedback (use case survey + pricing willingness) to inform the roadmap
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Screens
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Welcome
+The landing screen where users submit a URL or upload a file. A quick survey at the bottom asks what they'd use the tool for — meeting notes, lecture recaps, podcast highlights, content research, or other.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Loading
+A transitional screen shown while the content is being analyzed. Lasts ~2 seconds in the current prototype.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Results
+Displays the summary, a mock audio player, and action buttons to copy or download the output. A pricing survey at the bottom gauges willingness to pay.
+
+---
+
+## Tech stack
+
+| Layer | Choice |
+|---|---|
+| Framework | React 18 + TypeScript |
+| Styling | Plain CSS (BEM-style `.ea-` prefix) |
+| Fonts | DM Sans · Instrument Serif (Google Fonts) |
+| State | Local `useState` — no external store |
+| Routing | None — single-page screen state machine |
+
+---
+
+## Project structure
+
+```
+src/
+├── EarlyAccessComponent.tsx   # Main component (Nav, Welcome, Loading, Results)
+└── EarlyAccessComponent.css   # All styles
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Running locally
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+
+No environment variables are required for the frontend prototype. The loading delay and mock summary are hardcoded — replace with real API calls when the backend is ready.
+
+---
+
+## Design decisions
+
+- **Full-screen layout** — no max-width container. Content uses `10%` horizontal padding to breathe at any viewport size.
+- **Dark theme only** — background `#050505`, card surface `#0a0a0a`. The accent color throughout is `#aeffc7` (mint green).
+- **Two typefaces** — DM Sans for UI text, Instrument Serif (italic) for display headings.
+- **Screen transitions** — `fadeUp` animation on each screen change for a polished feel without a heavy animation library.
+
+---
+
+## Roadmap
+
+- [ ] Connect URL input to a real transcription + summarization API
+- [ ] Wire up file upload to backend processing
+- [ ] Persist survey responses to a database
+- [ ] Build out the infographic export feature
+- [ ] Add authentication for returning users
+- [ ] Mobile responsiveness pass
+
+---
+
+## Feedback
+
+This is an early access preview. If you're a tester, use the in-app survey to share what you'd use DualCore for and whether you'd pay for it. All responses directly shape what gets built next.
+
+---
+
+Built by DualCore · 2026
