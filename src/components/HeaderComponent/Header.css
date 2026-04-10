@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&display=swap");
+
+.ea-nav {
+  background: #0a0a0a;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ea-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ea-nav-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.ea-nav-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.3px;
+}
+
+.ea-nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.ea-nav-link {
+  color: #777;
+  font-size: 15px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.ea-nav-link:hover {
+  color: #aaa;
+}
+
+.ea-nav-link--active {
+  color: #aeffc7;
+}

@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=Instrument+Serif:ital@0;1&display=swap");
-
-/* ─── Keyframes ─────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&display=swap");
 
 @keyframes fadeUp {
   from {
@@ -19,14 +17,12 @@
   }
 }
 
-/* ─── Base ──────────────────────────────────────── */
-
 .ea-root {
   position: fixed;
   inset: 0;
   overflow-y: auto;
   background: #050505;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .ea-container {
@@ -45,68 +41,6 @@
   min-height: 100vh;
 }
 
-.ea-footer-text {
-  display: none;
-}
-
-/* ─── Nav ───────────────────────────────────────── */
-
-.ea-nav {
-  background: #0a0a0a;
-  padding: 20px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.ea-nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.ea-nav-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #c8f0dd 0%, #93d5f5 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: #0a0a0a;
-  letter-spacing: -0.5px;
-}
-
-.ea-nav-name {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: "Instrument Serif", serif;
-  letter-spacing: 0.5px;
-}
-
-.ea-nav-links {
-  display: flex;
-  gap: 28px;
-}
-
-.ea-nav-link {
-  color: #777;
-  font-size: 15px;
-  cursor: pointer;
-  transition: color 0.15s;
-}
-
-.ea-nav-link:hover {
-  color: #aaa;
-}
-
-.ea-nav-link--active {
-  color: #aeffc7;
-}
-
 /* ─── Pill ──────────────────────────────────────── */
 
 .ea-pill {
@@ -118,7 +52,7 @@
   background: transparent;
   cursor: pointer;
   transition: all 0.2s;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .ea-pill:hover:not(.ea-pill--selected) {
@@ -152,12 +86,13 @@
 }
 
 .ea-title {
-  font-family: "Instrument Serif", serif;
+  font-family: "Inter", sans-serif;
   font-size: 64px;
-  font-weight: 400;
+  font-weight: 600;
   color: #fff;
   margin: 20px 0 12px;
   line-height: 1.1;
+  letter-spacing: -1.5px;
 }
 
 .ea-subtitle {
@@ -173,7 +108,7 @@
   font-size: 15px;
   cursor: pointer;
   margin-top: 8px;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -198,7 +133,7 @@
   border-radius: 12px;
   color: #fff;
   font-size: 16px;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   outline: none;
   margin-bottom: 16px;
 }
@@ -270,7 +205,7 @@
   font-weight: 600;
   letter-spacing: 0.1px;
   cursor: pointer;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
 }
 
@@ -358,11 +293,12 @@
 }
 
 .ea-results-title {
-  font-family: "Instrument Serif", serif;
+  font-family: "Inter", sans-serif;
   font-size: 40px;
-  font-weight: 400;
+  font-weight: 600;
   color: #fff;
   margin: 0 0 24px;
+  letter-spacing: -1px;
 }
 
 .ea-player {
@@ -462,7 +398,7 @@
   border-radius: 12px;
   color: #aaa;
   cursor: pointer;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
@@ -509,7 +445,7 @@
   color: #777;
   background: transparent;
   cursor: pointer;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   transition: all 0.2s;
 }
 
@@ -523,44 +459,4 @@
   border: 1.5px solid #aeffc7;
   color: #aeffc7;
   background: rgba(174, 255, 199, 0.06);
-}
-
-.ea-bottom-bar {
-  border-top: 1px solid #1a1a1a;
-  padding: 20px 10%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.ea-back-link {
-  background: none;
-  border: none;
-  color: #555;
-  font-size: 15px;
-  cursor: pointer;
-  font-family: "DM Sans", sans-serif;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.15s;
-}
-
-.ea-back-link:hover {
-  color: #888;
-}
-
-.ea-social-links {
-  display: flex;
-  gap: 20px;
-}
-
-.ea-social-link {
-  font-size: 13px;
-  color: #444;
-  cursor: pointer;
-  transition: color 0.15s;
-}
-
-.ea-social-link:hover {
-  color: #777;
 }

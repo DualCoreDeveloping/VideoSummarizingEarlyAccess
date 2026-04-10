@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import type { ChangeEvent } from "react";
+import Footer from "../../components/FooterComponent/Footer";
+import Header from "../../components/HeaderComponent/Header";
 import "./EarlyAccessComponent.css";
 
 const useCases: string[] = [
@@ -9,6 +11,7 @@ const useCases: string[] = [
   "Content research",
   "Other",
 ];
+
 const pricingOptions: string[] = [
   "Free only",
   "Free + pay for extras",
@@ -29,21 +32,6 @@ function Pill({ label, selected, onClick }: PillProps) {
     >
       {label}
     </button>
-  );
-}
-
-function Nav() {
-  return (
-    <div className="ea-nav">
-      <div className="ea-nav-brand">
-        <div className="ea-nav-logo">DC</div>
-        <span className="ea-nav-name">DualCore</span>
-      </div>
-      <div className="ea-nav-links">
-        <span className="ea-nav-link">About</span>
-        <span className="ea-nav-link ea-nav-link--active">Early access</span>
-      </div>
-    </div>
   );
 }
 
@@ -152,7 +140,7 @@ interface ResultsScreenProps {
   onReset: () => void;
 }
 
-function ResultsScreen({ onReset }: ResultsScreenProps) {
+function ResultsScreen({}: ResultsScreenProps) {
   const [pricingChoice, setPricingChoice] = useState<string | null>(null);
 
   return (
@@ -206,24 +194,13 @@ function ResultsScreen({ onReset }: ResultsScreenProps) {
           ))}
         </div>
       </div>
-
-      <div className="ea-bottom-bar">
-        <button className="ea-back-link" onClick={onReset}>
-          ← Summarize another
-        </button>
-        <div className="ea-social-links">
-          {["IG", "X", "Sponsor"].map((s) => (
-            <span key={s} className="ea-social-link">{s}</span>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
 
 type Screen = "welcome" | "loading" | "results";
 
-export default function DualCoreEarlyAccess() {
+export default function WelcomePage() {
   const [screen, setScreen] = useState<Screen>("welcome");
 
   const handleSubmit = (): void => {
@@ -235,12 +212,14 @@ export default function DualCoreEarlyAccess() {
     <div className="ea-root">
       <div className="ea-container">
         <div className="ea-card">
-          <Nav />
+          <Header />
           {screen === "welcome" && <WelcomeScreen onSubmit={handleSubmit} />}
           {screen === "loading" && <LoadingScreen />}
-          {screen === "results" && <ResultsScreen onReset={() => setScreen("welcome")} />}
+          {screen === "results" && (
+            <ResultsScreen onReset={() => setScreen("welcome")} />
+          )}
         </div>
-        <p className="ea-footer-text">Built by DualCore · 2025</p>
+        <Footer />
       </div>
     </div>
   );

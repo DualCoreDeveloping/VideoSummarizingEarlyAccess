@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './components/EarlyAccessComponent/EarlyAccessComponent'
+import App from './pages/EarlyAccessPage/EarlyAccessComponent'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
